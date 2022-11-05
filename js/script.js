@@ -71,6 +71,19 @@ repoList.addEventListener("click", function (e){
 
 const selectedRepoInfo = async function (repoName){ const selectInfo = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
 const repoInfo = await selectInfo.json();
-console.log(repoInfo)
+console.log(repoInfo);
+
+//get languages
+const fetchLanguages = await fetch(repoInfo.languages_url);
+const languageData = await fetchLanguages.json();
+
+console.log(languageData)
+//list languages create array
+const languages = [];
+for(const language in languageData){
+languages.push(language);
+
+//console.log(languages)
+}
 
 }
