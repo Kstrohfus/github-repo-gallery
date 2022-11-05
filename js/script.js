@@ -1,9 +1,11 @@
 //main div overview of everything
-const mainOverview = document.querySelector(".overview")
+const mainOverview = document.querySelector(".overview");
 const username = "kstrohfus"
-const repoList = document.querySelector(".repo-list")
-const ReposElement = document.querySelector(".repos")
-const RepoInfomation = document.querySelector(".repo-data")
+const repoList = document.querySelector(".repo-list");
+const ReposElement = document.querySelector(".repos");
+const RepoInfomation = document.querySelector(".repo-data");
+const backBtn = document.querySelector("button");
+const filterInput = document.querySelector("input")
 
 
 //Github user data fetch
@@ -90,8 +92,9 @@ languages.push(language);
 
 const specificRepoInfo = function (repoInfo, languages) {
 RepoInfomation.innerHTML = "";
-RepoInfomation.classList.remove("hide")
-ReposElement.classList.add("hide")
+RepoInfomation.classList.remove("hide");
+ReposElement.classList.add("hide");
+backBtn.classList.remove("hide");
 
 const div = document.createElement("div")
 div.innerHTML = `<h3>Name: ${repoInfo.name}</h3>
@@ -103,3 +106,9 @@ div.innerHTML = `<h3>Name: ${repoInfo.name}</h3>
     RepoInfomation.append(div);
 
 }
+backBtn.addEventListener("click", function (){
+    ReposElement.classList.remove("hide");
+    RepoInfomation.classList.add("hide");
+    backBtn.classList.add("hide");
+
+})
