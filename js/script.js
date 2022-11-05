@@ -1,8 +1,9 @@
 //main div overview of everything
 const mainOverview = document.querySelector(".overview")
 const username = "kstrohfus"
-
 const repoList = document.querySelector(".repo-list")
+const ReposElement = document.querySelector(".repos")
+const RepoInfomation = document.querySelector(".repo-data")
 
 
 //Github user data fetch
@@ -56,3 +57,20 @@ for (const repo of repos) {
     repoList.append(repoItem);
 }
 };
+
+//event listener to get info my clicking name
+repoList.addEventListener("click", function (e){
+    if (e.target.matches("h3")){
+        const repoName = e.target.innerText;
+       //console.log(repoName)
+       selectedRepoInfo(repoName);
+    }
+});
+
+//function to recieve the info for clicking name of repo
+
+const selectedRepoInfo = async function (repoName){ const selectInfo = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
+const repoInfo = await selectInfo.json();
+console.log(repoInfo)
+
+}
