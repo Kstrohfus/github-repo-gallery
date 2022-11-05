@@ -2,6 +2,10 @@
 const mainOverview = document.querySelector(".overview")
 const username = "kstrohfus"
 
+const repoList = document.querySelector(".repo-list")
+
+
+
 const ghUser = async function () {
     const userInfo = await fetch(`https://api.github.com/users/${username}`)
     const data = await userInfo.json();
@@ -28,3 +32,12 @@ const gitHubInfo = function (data) {
 
     mainOverview.append(divInfo);
 }
+
+const gitRepos = async function () {
+    const repoRequest = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+    const repoData = await repoRequest.json();
+
+console.log(repoData)
+
+};
+gitRepos();
