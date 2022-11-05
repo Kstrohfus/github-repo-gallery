@@ -52,6 +52,8 @@ repoDisplayInfo(repoData);
 
 //function to display repos on page
 const repoDisplayInfo = function (repos) {
+    filterInput.classList.remove("hide");
+
 for (const repo of repos) {
     const repoItem = document.createElement("li");
     repoItem.classList.add("repo");
@@ -112,3 +114,21 @@ backBtn.addEventListener("click", function (){
     backBtn.classList.add("hide");
 
 })
+
+//search event to make them show up or dissapear
+filterInput.addEventListener("input", function (e) { 
+    const searchText = e.target.value;
+    //console.log(searchText) 
+    const repos = document.querySelectorAll(".repo")
+    const searchToLowercase = searchText.toLowerCase();
+
+    for (const repo of repos) {
+       const repoLowercase = repo.innerText.toLowerCase();
+    if (repoLowercase.includes(searchToLowercase)) {
+      repo.classList.remove("hide");
+    } else {
+      repo.classList.add("hide");
+    }
+    }
+
+});
