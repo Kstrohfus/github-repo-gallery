@@ -30,9 +30,9 @@ const gitHubInfo = function (data) {
     </figure>
     <div>
       <p><strong>Name:</strong> ${"Kayla Strohfus"}</p>
-      <p><strong>Bio:</strong> ${"Front End Web Development Student / Office Manager"}</p>
+      <p><strong>Bio:</strong> ${"Web Developer"}</p>
       <p><strong>Location:</strong> ${"Phoenix, AZ"}</p>
-      <p><strong>Number of public repos:</strong> ${37}</p>
+      <p><strong>Number of public repos:</strong> ${73}</p>
     </div>`
 
     mainOverview.append(divInfo);
